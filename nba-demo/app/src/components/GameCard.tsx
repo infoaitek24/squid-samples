@@ -40,15 +40,15 @@ const Team = ({ tid, name, score, playerStats }) => {
       <div className="p-4 m-2 mt-5 bg-slate-300 rounded-xl">
         <table className="h-[200px] align-top w-full">
           <thead className="w-full">
-            <tr align="left">
-              <th width="70%">Name</th>
-              <th width="15%">Min</th>
-              <th width="15%">Pts</th>
+            <tr style={{ textAlign: 'left' }}>
+              <th style={{ width: '70%' }}>Name</th>
+              <th style={{ width: '15%' }}>Min</th>
+              <th style={{ width: '15%' }}>Pts</th>
             </tr>
           </thead>
           <tbody className="w-full">
             {playerStats.map((p) => (
-              <tr align="left" key={p.pid}>
+              <tr style={{ textAlign: 'left' }} key={p.pid}>
                 <td width="70%" className={"whitespace-nowrap pr-2 truncate"}>
                   <img
                     className="inline mr-1"
