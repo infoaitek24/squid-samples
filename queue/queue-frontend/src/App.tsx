@@ -6,10 +6,10 @@ function App() {
   const [message, setMessage] = useState('');
   const [outgoingMessage, setOutgoingMessage] = useState('');
   const squid = useSquid();
-  const queue = squid.queue('test_topic');
+  const queue = squid.queue<string>('test_topic');
 
   useEffect(() => {
-    const subscription = queue.consume<string>().subscribe(message => setMessage(message));
+    const subscription = queue.consume().subscribe(message => setMessage(message));
     return () => subscription.unsubscribe();
   }, []);
 

@@ -8,7 +8,7 @@ const PlayersList = () => {
   const [comparePid, setComparePid] = useState(null);
 
   const collection = useCollection('players');
-  const { data, loading, error, next, prev, hasPrev, hasNext } = usePagination(
+  const { data, loading, next, prev, hasPrev, hasNext } = usePagination(
     collection.query().sortBy('pts', false).dereference(),
     { pageSize: 50, subscribe: true },
   );
@@ -40,7 +40,7 @@ const PlayersList = () => {
     setGenerating(false);
   };
 
-  if (error) return <span>{error}</span>;
+  // TODO: if (error) return <span>{error}</span>;
 
   if (!data.length && loading) return <span>Waiting...</span>;
   if (!data.length) return null;
@@ -60,7 +60,7 @@ const PlayersList = () => {
       </div>
       <table className="align-top w-[800px]">
         <thead>
-          <tr align="left">
+          <tr style={{ textAlign: 'left' }}>
             <th>Name</th>
             <th>Min</th>
             <th>Pts</th>
@@ -71,7 +71,7 @@ const PlayersList = () => {
         </thead>
         <tbody>
           {data.map((p) => (
-            <tr align="left" key={p.playerId}>
+            <tr style={{ textAlign: 'left' }} key={p.playerId}>
               <td className="whitespace-nowrap truncate">
                 <img
                   className="inline mr-1"
