@@ -95,6 +95,7 @@ import { SquidAuthProvider } from '@squidcloud/client/dist/typescript-client/src
 export class AppModule {
   constructor(squid: Squid, authService: AuthService, themeService: ThemeService) {
     const authProvider: SquidAuthProvider = {
+      integrationId: 'auth0',
       getToken: async (): Promise<string | undefined> => {
         // Wait until the authentication state is resolved by Auth0.
         const user = await firstValueFrom(authService.user$);
