@@ -1,4 +1,3 @@
-import { SquidService, webhook } from '@squidcloud/backend';
-import { WebhookRequest, WebhookResponse } from '@squidcloud/common';
+import { SquidService } from '@squidcloud/backend';
 
 export class StripeWebhookService extends SquidService {}
